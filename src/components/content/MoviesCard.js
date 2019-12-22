@@ -1,25 +1,16 @@
 import React from 'react';
 
-import oceans from '../../assets/pictures/oceans_eight.jpg';
-import midnight from '../../assets/pictures/midnight_sun.jpg';
-import indestructibles from '../../assets/pictures/indestructibles_two.jpg';
-import bruit from '../../assets/pictures/sans_un_bruit.jpg';
-import creed from '../../assets/pictures/creed_two.jpg';
-import pulp from '../../assets/pictures/pulp_fiction.jpg';
-import seven from '../../assets/pictures/seven.jpg';
-import inception from '../../assets/pictures/inception.jpg';
-import girl from '../../assets/pictures/gone_girl.jpg';
-
 import thumbUp from '../../assets/pictures/thumb_up.png';
 import thumbDown from '../../assets/pictures/thumb_down.png';
-import trash from '../../assets/pictures/delete.svg'
+import trash from '../../assets/pictures/delete.png'
 
 import './MoviesCard.css'
 
 const MoviesCard = (props) => {
+    
     return (
         <div className="MoviesCard-box">
-            <img className="MoviesCard-img" src={oceans} alt={props.title} />
+            <img className="MoviesCard-img" src={props.image} alt={props.title} />
             <p className="MoviesCard-title">{props.title}</p>
             <p className="MoviesCard-category">{props.category}</p>
             <div className="MoviesCard-thumbsAndTrash">
@@ -33,7 +24,9 @@ const MoviesCard = (props) => {
                         <p className="MoviesCard-likeNum">{props.dislikes}</p>
                     </div>
                 </div>
-                <img className="MoviesCard-trash" scr={trash} />
+                <div className="MoviesCard-deleteButton" onClick={props.delete}>
+                    <img className="MoviesCard-trash" src={trash} alt="trash bin"/>
+                </div>
             </div>
 
             

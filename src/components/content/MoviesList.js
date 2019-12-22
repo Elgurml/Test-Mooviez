@@ -2,6 +2,7 @@ import React from 'react';
 
 import movies from '../../data/movies';
 
+
 import './MoviesList.css';
 import MoviesCard from './MoviesCard';
 
@@ -12,6 +13,13 @@ class MoviesList extends React.Component {
 
     componentDidMount() {
         this.setState({listMovies: movies})
+        console.log("listeInitiale", this.state.listMovies);
+    }
+
+    deleteMovie = (index) => {
+        const newListMovies = this.state.listMovies
+        newListMovies.splice(index, 1)
+        this.setState({listMovies: newListMovies})
     }
 
     render(){
@@ -29,6 +37,8 @@ class MoviesList extends React.Component {
                             category={listMovie.category}
                             likes={listMovie.likes}
                             dislikes={listMovie.dislikes}
+                            image={listMovie.image}
+                            delete={() => this.deleteMovie(index)}
                         />
                     )
                     }

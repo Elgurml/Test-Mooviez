@@ -54,7 +54,13 @@
     width: 20px;
 }
 
-.MoviesCard-trash {
-    fill: #999999;
+.MoviesCard-deleteButton {
+    display: flex;
+    justify-content: flex-end;
     width: 20%;
+}
+
+.MoviesCard-trash {
+    height: 20px;
+    width: 20px;
 }
