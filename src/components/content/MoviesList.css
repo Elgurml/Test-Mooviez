@@ -1,5 +1,9 @@
-.MoviesList-conatainer {
-    background-color: blue;
+.MoviesList-container {
     margin: 60px 200px;
-    padding: 50px;
+}
+
+.MoviesList-movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
