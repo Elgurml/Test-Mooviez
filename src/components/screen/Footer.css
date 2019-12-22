@@ -1,0 +1,14 @@
+.Footer-container {
+    margin-top: 300px;
+    bottom: 0px;
+    background-color: black;
+    border-top: 1px solid #343434;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60px;
+}
+
+.Footer-container p {
+    color: #999999;
+}
