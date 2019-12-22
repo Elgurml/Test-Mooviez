@@ -7,3 +7,9 @@
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.App {
+    background-image: url('./assets/pictures/tunnel_tube.jpg');
+    height: 100vh;
+    background-size: cover;
+}
+
