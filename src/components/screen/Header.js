@@ -1,9 +1,21 @@
 import React from 'react';
+import './Header.css'
 
 const Header = () => {
     return (
         <div>
-            <p>header</p>
+            <div className="Header-titleArea">
+                <h1 className="Header-title">MOOVIEZ</h1>
+            </div>
+            <div className="Header-optionsBar">
+                <div className="Header-optionsLikes">
+                    
+                    <p className="Header-optionsToggleLikesText">Toggle likes</p>
+                </div>
+                <div className="Header-optionsCategories">
+
+                </div>
+            </div>
         </div>
     )
 }
