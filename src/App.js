@@ -16,22 +16,12 @@ class App extends React.Component {
     displayCat: true
   }
 
-  // deleteMovie = (index) => {
-  //   const newListMovies = this.state.listMovies
-  //   newListMovies.splice(index, 1)
-  //   this.setState({listMovies: newListMovies})
-  // }
-
   hideShowCategory = (cat) => {
     this.setState({displayCat: !this.state.display})
 }
 
   toggleSwitch () {
     this.setState({displayLikes: !this.state.displayLikes})
-  }
-
-  hideShowCat = (index) => {
-
   }
 
   render() {
@@ -44,13 +34,11 @@ class App extends React.Component {
             click={() => this.toggleSwitch()}
             check={() => this.hideShowCategory()}
             listMovies={this.state.listMovies}
-            // check={() => this.hideShowCat(index)}
           />
           <MoviesList 
             likes={this.state.displayLikes}
             listMovies={this.state.listMovies}
             catDisplay={this.state.displayCat}
-            // erase={() => this.deleteMovie(index)}
           />
           <Footer />
         </div>
