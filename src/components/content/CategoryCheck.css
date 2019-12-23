@@ -1,0 +1,12 @@
+.CategoryCheck-container {
+    display: flex;
+    align-items: center;
+}
+
+.CategoryCheck-checkBox {
+margin: 7px;
+}
+
+.CategoryCheck-name {
+    color: #999999;
+}

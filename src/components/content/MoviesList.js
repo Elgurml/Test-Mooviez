@@ -1,36 +1,24 @@
 import React from 'react';
-
-import movies from '../../data/movies';
-
+import { connect } from 'react-redux';
+import { fetchPosts } from '../../actions/postActions';
 
 import './MoviesList.css';
 import MoviesCard from './MoviesCard';
 
 class MoviesList extends React.Component {
-    state= {
-        listMovies: []
-    }
 
     componentDidMount() {
-        this.setState({listMovies: movies})
-        console.log("listeInitiale", this.state.listMovies);
+        this.props.fetchPosts();
     }
-
-    deleteMovie = (index) => {
-        const newListMovies = this.state.listMovies
-        newListMovies.splice(index, 1)
-        this.setState({listMovies: newListMovies})
-    }
+    
 
     render(){
-
-        console.log("mammouth:", this.state.listMovies);
         
         return (
             <div className="MoviesList-container">
                 <div className="MoviesList-movies">
-                    {this.state.listMovies
-                    .map((listMovie, index) => 
+                    {this.props.posts
+                    .map((listMovie) => 
                         <MoviesCard
                             key={listMovie.id}
                             title={listMovie.title}
@@ -38,7 +26,8 @@ class MoviesList extends React.Component {
                             likes={listMovie.likes}
                             dislikes={listMovie.dislikes}
                             image={listMovie.image}
-                            delete={() => this.deleteMovie(index)}
+                            showLikes={this.props.likes}
+                            id={listMovie.id}
                         />
                     )
                     }
@@ -48,4 +37,8 @@ class MoviesList extends React.Component {
     }
 }
 
-export default MoviesList;
+const mapStateToProps = state => ({
+    posts: state.posts.items
+})
+
+export default connect(mapStateToProps, { fetchPosts })(MoviesList);

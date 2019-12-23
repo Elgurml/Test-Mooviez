@@ -35,6 +35,12 @@
     width: 80%;
 }
 
+.MoviesCard-thumbsHidden {
+    display: flex;
+    visibility: hidden;
+    width: 80%;
+}
+
 .MoviesCard-thumbUp {
     display: flex;
     width: 50px;
