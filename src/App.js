@@ -1,26 +1,62 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+
+
+import store from './store';
+import Header from './components/screen/Header';
+import Footer from './components/screen/Footer';
+import MoviesList from './components/content/MoviesList';
+
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state= {
+    displayLikes: false,
+    displayCat: true
+  }
+
+  // deleteMovie = (index) => {
+  //   const newListMovies = this.state.listMovies
+  //   newListMovies.splice(index, 1)
+  //   this.setState({listMovies: newListMovies})
+  // }
+
+  hideShowCategory = (cat) => {
+    this.setState({displayCat: !this.state.display})
+}
+
+  toggleSwitch () {
+    this.setState({displayLikes: !this.state.displayLikes})
+  }
+
+  hideShowCat = (index) => {
+
+  }
+
+  render() {
+    
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <Header 
+            defaultChecked={this.state.displayLikes}
+            click={() => this.toggleSwitch()}
+            check={() => this.hideShowCategory()}
+            listMovies={this.state.listMovies}
+            // check={() => this.hideShowCat(index)}
+          />
+          <MoviesList 
+            likes={this.state.displayLikes}
+            listMovies={this.state.listMovies}
+            catDisplay={this.state.displayCat}
+            // erase={() => this.deleteMovie(index)}
+          />
+          <Footer />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;

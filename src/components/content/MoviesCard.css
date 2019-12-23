@@ -1,0 +1,72 @@
+.MoviesCard-box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border-radius: 6px;
+    background-color: #282727;
+    margin: 0 25px 50px;
+}
+
+.MoviesCard-box p {
+    color: #999999;
+}
+
+.MoviesCard-img {
+    border-radius: 6px;
+    max-width: 100%;
+}
+
+.MoviesCard-title {
+    font-weight: bold;
+    margin: 15px 0 10px 15px;
+}
+
+.MoviesCard-category {
+    margin: 0 0 15px 15px;
+}
+
+.MoviesCard-thumbsAndTrash {
+    display: flex;
+    margin: 0 15px 15px 15px;
+}
+
+.MoviesCard-thumbs {
+    display: flex;
+    width: 80%;
+}
+
+.MoviesCard-thumbsHidden {
+    display: flex;
+    visibility: hidden;
+    width: 80%;
+}
+
+.MoviesCard-thumbUp {
+    display: flex;
+    width: 50px;
+    justify-content: space-evenly;
+}
+
+.MoviesCard-thumbDown {
+    display: flex;
+    width: 50px;
+    justify-content: space-evenly;
+}
+
+
+
+.MoviesCard-thumb {
+    height: 20px;
+    width: 20px;
+}
+
+.MoviesCard-deleteButton {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+}
+
+.MoviesCard-trash {
+    height: 20px;
+    width: 20px;
+}
