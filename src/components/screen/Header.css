@@ -36,11 +36,15 @@
     padding-left: 10px;
 }
 
-.Header-optionsCategories{
+.Header-optionsCategories {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+}
+
+.Header-optionsCategoriesHidden {
+  display: none;
 }
 
 /* React toggle */

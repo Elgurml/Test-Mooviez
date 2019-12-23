@@ -7,10 +7,11 @@ import { fetchPosts } from '../../actions/postActions';
 import CategoryCheck from '../content/CategoryCheck';
 
 class Header extends React.Component {
-
     componentDidMount() {
         this.props.fetchPosts();
     }
+
+    
 
     render () {
         return (
@@ -32,9 +33,7 @@ class Header extends React.Component {
                         .map((listMovie, index) => 
                                 <CategoryCheck 
                                     categoryFilter={listMovie.category}
-                                    // hideShowCat={() => this.hideShowCat(index)}
-                                    // onClick={this.props.check(index)}
-                                    // check={() => this.hideShowCat(index)}
+                                    hideShowCat={() => this.props.check}
                                 />
                             )
                         }

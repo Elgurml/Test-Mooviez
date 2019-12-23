@@ -13,6 +13,7 @@ import './App.css';
 class App extends React.Component {
   state= {
     displayLikes: false,
+    displayCat: true
   }
 
   // deleteMovie = (index) => {
@@ -20,6 +21,10 @@ class App extends React.Component {
   //   newListMovies.splice(index, 1)
   //   this.setState({listMovies: newListMovies})
   // }
+
+  hideShowCategory = (cat) => {
+    this.setState({displayCat: !this.state.display})
+}
 
   toggleSwitch () {
     this.setState({displayLikes: !this.state.displayLikes})
@@ -37,12 +42,14 @@ class App extends React.Component {
           <Header 
             defaultChecked={this.state.displayLikes}
             click={() => this.toggleSwitch()}
+            check={() => this.hideShowCategory()}
             listMovies={this.state.listMovies}
             // check={() => this.hideShowCat(index)}
           />
           <MoviesList 
             likes={this.state.displayLikes}
             listMovies={this.state.listMovies}
+            catDisplay={this.state.displayCat}
             // erase={() => this.deleteMovie(index)}
           />
           <Footer />
