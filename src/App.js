@@ -13,18 +13,26 @@ import './App.css';
 class App extends React.Component {
   state= {
     displayLikes: false,
-    displayCat: true
+    displayCat: true,
+    currentPage: 1,
+    postPerPage: 12
   }
 
   hideShowCategory = (cat) => {
-    this.setState({displayCat: !this.state.display})
+    this.setState({displayCat: !this.state.displayCat})
 }
 
   toggleSwitch () {
     this.setState({displayLikes: !this.state.displayLikes})
   }
 
+  
   render() {
+    // console.log(this.state.displayCat);
+    // const indexOfLastPost = this.state.currentPage * this.state.postPerPage
+    // const indexOfFirstPost = indexOfLastPost - this.state.postPerPage
+    console.log(this.state.listMovies);
+    // const currentPosts = this.state.listMovies.slice(indexOfFirstPost, indexOfLastPost)
     
     return (
       <Provider store={store}>
