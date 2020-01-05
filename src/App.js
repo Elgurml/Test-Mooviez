@@ -13,9 +13,7 @@ import './App.css';
 class App extends React.Component {
   state= {
     displayLikes: false,
-    displayCat: true,
-    currentPage: 1,
-    postPerPage: 12
+    displayCat: true
   }
 
   hideShowCategory = (cat) => {
@@ -28,11 +26,6 @@ class App extends React.Component {
 
   
   render() {
-    // console.log(this.state.displayCat);
-    // const indexOfLastPost = this.state.currentPage * this.state.postPerPage
-    // const indexOfFirstPost = indexOfLastPost - this.state.postPerPage
-    console.log(this.state.listMovies);
-    // const currentPosts = this.state.listMovies.slice(indexOfFirstPost, indexOfLastPost)
     
     return (
       <Provider store={store}>
