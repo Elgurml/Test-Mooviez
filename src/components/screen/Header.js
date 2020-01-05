@@ -14,6 +14,9 @@ class Header extends React.Component {
     
 
     render () {
+        const categories = [...new Set(this.props.posts.map(i => i.category))];
+        console.log(categories);
+        
         return (
             <div>
                 <div className="Header-titleArea">
@@ -28,12 +31,12 @@ class Header extends React.Component {
                         <p className="Header-optionsToggleLikesText">Toggle likes</p>
                     </div>
                     <div className="Header-optionsCategories">
-                        {this.props.posts
-                        .filter((v, i, a) => a.indexOf(v) === i)
-                        .map((listMovie, index) => 
-                                <CategoryCheck 
-                                    categoryFilter={listMovie.category}
-                                    hideShowCat={() => this.props.check}
+                        {categories
+                        .map((category, index) => 
+                                <CategoryCheck
+                                    key={index}
+                                    categoryFilter={category}
+                                    hideShowCat={this.props.check}
                                 />
                             )
                         }

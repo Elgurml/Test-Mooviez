@@ -6,7 +6,7 @@ class CategoryCheck extends React.Component {
     render() {
         return (
             <div className="CategoryCheck-container">
-                <input type="checkbox" className="CategoryCheck-checkBox" onClick={this.hideShowCategory} />
+                <input type="checkbox" className="CategoryCheck-checkBox" onClick={this.props.hideShowCat} />
                 <div className="CategoryCheck-name">
                     {this.props.categoryFilter}
                 </div>
