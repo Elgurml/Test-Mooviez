@@ -12,10 +12,7 @@ import './App.css';
 
 class App extends React.Component {
   state= {
-    displayLikes: false,
-    displayCat: true,
-    currentPage: 1,
-    postPerPage: 12
+    displayLikes: false
   }
 
   hideShowCategory = (cat) => {
@@ -25,15 +22,10 @@ class App extends React.Component {
   toggleSwitch () {
     this.setState({displayLikes: !this.state.displayLikes})
   }
-
   
   render() {
     // console.log(this.state.displayCat);
-    // const indexOfLastPost = this.state.currentPage * this.state.postPerPage
-    // const indexOfFirstPost = indexOfLastPost - this.state.postPerPage
-    console.log(this.state.listMovies);
-    // const currentPosts = this.state.listMovies.slice(indexOfFirstPost, indexOfLastPost)
-    
+
     return (
       <Provider store={store}>
         <div className="App">
@@ -41,12 +33,12 @@ class App extends React.Component {
             defaultChecked={this.state.displayLikes}
             click={() => this.toggleSwitch()}
             check={() => this.hideShowCategory()}
-            listMovies={this.state.listMovies}
+            // listMovies={this.state.listMovies}
           />
           <MoviesList 
             likes={this.state.displayLikes}
-            listMovies={this.state.listMovies}
-            catDisplay={this.state.displayCat}
+            // listMovies={this.state.listMovies}
+            // catDisplay={this.state.displayCat}
           />
           <Footer />
         </div>
