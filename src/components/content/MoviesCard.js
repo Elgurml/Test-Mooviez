@@ -31,7 +31,7 @@ class MoviesCard extends React.Component {
                             <p className="MoviesCard-likeNum">{this.props.dislikes}</p>
                         </div>
                     </div>
-                    <div className="MoviesCard-deleteButton" onClick={this.deletePost.bind(this, this.props.id, this.props.category)}>
+                    <div className="MoviesCard-deleteButton" onClick={this.deletePost.bind(this, this.props)}>
                         <img className="MoviesCard-trash" src={trash} alt="trash bin"/>
                     </div>
                 </div>

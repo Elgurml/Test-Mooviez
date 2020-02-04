@@ -7,9 +7,6 @@ import { fetchPosts, filterMovies } from '../../actions/postActions';
 import CategoryCheck from '../content/CategoryCheck';
 
 class Header extends React.Component {
-    // state = {
-        // categories: [...this.props.cat],
-    // }
 
     componentDidMount = async () => {
         await this.props.fetchPosts();
@@ -23,8 +20,10 @@ class Header extends React.Component {
             activeCategories.push(categ)
         }
         
-        this.props.filterMovies(activeCategories)
+        console.log("this.props.items in header", this.props.posts)
+        this.props.filterMovies(activeCategories, this.props.posts)
     }
+
 
     
     render () {
@@ -48,7 +47,7 @@ class Header extends React.Component {
                                     key={index}
                                     categoryFilter={category}
                                     hideShowCat={this.categoryFilter}
-                                    
+                                    isChecked={this.props.catChecker.includes(category)}
                                 />
                             )
                         }

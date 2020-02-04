@@ -9,10 +9,11 @@ export const fetchPosts = () => dispatch => {
     })
 }
 
-export const filterMovies =  (categories) => dispatch => {
+export const filterMovies =  (categories, items) => dispatch => {
     const categoriesFiltered = categories
     const allMovies = [...movies]
-    let moviesFilter = [...movies]
+    let moviesFilter = [...items]
+    console.log("ifffffffffffffffff", items)
     if (categoriesFiltered !== 0) {
         let moviesFilterByCat = []
         for (let i = 0; i < categoriesFiltered.length; i++) {
@@ -27,7 +28,9 @@ export const filterMovies =  (categories) => dispatch => {
     })
 }
 
-export const deletePost = (id, category) => {
+export const deletePost = (props) => {
+    const id = props.id
+    const category = props.category
     return {
         type: DELETE_POST,
         payload: {id, category}

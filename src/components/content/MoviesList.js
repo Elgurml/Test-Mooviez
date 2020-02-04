@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 // import { fetchPosts } from '../../actions/postActions';
 import { filterMovies } from '../../actions/postActions';
 
+
 import './MoviesList.css';
 import MoviesCard from './MoviesCard';
 
@@ -27,9 +28,24 @@ class MoviesList extends React.Component {
     
 
     render(){
+        console.log("this.props.availables",this.props.availables)
+        let remainingPosts = []
+        for (let i=0; i < this.props.posts.length; i++) {
+            let postLeft = []
+            for (let j=0; j < this.props.availables.length; j++) {
+                if (this.props.posts[i] === this.props.availables[j]) {
+                    postLeft = [...postLeft, this.props.availables[j]]
+                }
+            }
+            remainingPosts = [...remainingPosts, ...postLeft]
+        }
+        console.log("remainingPosts",remainingPosts)
+        
+        
         const indexOfLastPost = this.state.currentPage * this.state.postPerPage
         const indexOfFirstPost = indexOfLastPost - this.state.postPerPage
         const currentPosts = this.props.posts.slice(indexOfFirstPost, indexOfLastPost)
+
 
         const pageNumbers = []
         for (let i = 1; i <= Math.ceil(this.props.posts.length / this.state.postPerPage); i++) {
@@ -83,7 +99,8 @@ class MoviesList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    posts: state.posts.items
+    posts: state.posts.items,
+    availables: state.posts.itemsNotTrashed
 })
 
 export default connect(mapStateToProps, { filterMovies })(MoviesList);
