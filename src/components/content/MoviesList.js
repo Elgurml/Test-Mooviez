@@ -28,20 +28,6 @@ class MoviesList extends React.Component {
     
 
     render(){
-        console.log("this.props.availables",this.props.availables)
-        let remainingPosts = []
-        for (let i=0; i < this.props.posts.length; i++) {
-            let postLeft = []
-            for (let j=0; j < this.props.availables.length; j++) {
-                if (this.props.posts[i] === this.props.availables[j]) {
-                    postLeft = [...postLeft, this.props.availables[j]]
-                }
-            }
-            remainingPosts = [...remainingPosts, ...postLeft]
-        }
-        console.log("remainingPosts",remainingPosts)
-        
-        
         const indexOfLastPost = this.state.currentPage * this.state.postPerPage
         const indexOfFirstPost = indexOfLastPost - this.state.postPerPage
         const currentPosts = this.props.posts.slice(indexOfFirstPost, indexOfLastPost)
