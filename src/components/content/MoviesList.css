@@ -28,6 +28,7 @@
     width: 100%;
     height: 100%;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .MoviesList-postPerPage {
@@ -44,4 +45,5 @@
 
 .MoviesList-postPerPage select {
     margin-left: 10px;
+    cursor: pointer;
 }

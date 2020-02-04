@@ -10,5 +10,12 @@
 .App {
     background-image: url('./assets/pictures/tunnel_tube.jpg');
     background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+.App-Footer {
+    margin-bottom: 0;
+    
+}

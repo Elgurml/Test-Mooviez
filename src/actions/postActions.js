@@ -8,30 +8,28 @@ export const fetchPosts = () => dispatch => {
         payload: movies
     })
 }
-export const filterMovies = (categories) => dispatch => {
-    console.log("categories in postAction", categories)
-    const categoriesFiltered = [...new Set(categories)]
-    console.log("categoriesFiltered",categoriesFiltered)
+
+export const filterMovies =  (categories) => dispatch => {
+    const categoriesFiltered = categories
+    const allMovies = [...movies]
     let moviesFilter = [...movies]
     if (categoriesFiltered !== 0) {
         let moviesFilterByCat = []
         for (let i = 0; i < categoriesFiltered.length; i++) {
-                    let moviesFilterByCat2 = [...movies.filter(movie => movie.category === categoriesFiltered[i])]
-                    moviesFilterByCat = [...new Set([...moviesFilterByCat, ...moviesFilterByCat2])]
-                    console.log("moviesFilterByCat2", moviesFilterByCat2)
+            let moviesFilterByCat2 = [...movies.filter(movie => movie.category === categoriesFiltered[i])]
+            moviesFilterByCat = [...new Set([...moviesFilterByCat, ...moviesFilterByCat2])]
         }
         moviesFilter = moviesFilterByCat
     }
-    console.log("moviesFilter in postAction",moviesFilter)
     dispatch({
         type: FILTER_MOVIES,
-        payload: moviesFilter
+        payload: {moviesFilter, categoriesFiltered, allMovies}
     })
 }
 
-export const deletePost = (id) => {
+export const deletePost = (id, category) => {
     return {
         type: DELETE_POST,
-        payload: id
+        payload: {id, category}
     }
 }

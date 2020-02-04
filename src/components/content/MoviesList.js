@@ -12,20 +12,15 @@ class MoviesList extends React.Component {
         postPerPage: 8
     }
 
-    componentDidMount() {
-        this.props.filterMovies();
-    }
-
     handleClick = (event) => {
-        console.log("enveeeeeennnnnt", event.target.id)
         this.setState({
             currentPage: event.target.id
         })
     }
 
     updatePostPerPage = (numberPerPage) => {
-        console.log("ce n'est pas posssssssiiiiiible", numberPerPage)
         this.setState({
+            currentPage: 1,
             postPerPage: numberPerPage
         })
     }
@@ -73,7 +68,7 @@ class MoviesList extends React.Component {
                         </div>
                     )}
                     <div className="MoviesList-postPerPage">
-                        <label for="postPerPage">Movies displayed:</label>
+                        <label>Movies displayed:</label>
                         <select name="postPerPage" onChange={(e) => this.updatePostPerPage(e.target.value)}>
                             <option value="4" >4</option>
                             <option value="8" selected>8</option>

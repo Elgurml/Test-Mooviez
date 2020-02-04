@@ -24,7 +24,6 @@ class App extends React.Component {
   }
   
   render() {
-    // console.log(this.state.displayCat);
 
     return (
       <Provider store={store}>
@@ -33,14 +32,11 @@ class App extends React.Component {
             defaultChecked={this.state.displayLikes}
             click={() => this.toggleSwitch()}
             check={() => this.hideShowCategory()}
-            // listMovies={this.state.listMovies}
           />
           <MoviesList 
             likes={this.state.displayLikes}
-            // listMovies={this.state.listMovies}
-            // catDisplay={this.state.displayCat}
           />
-          <Footer />
+          <Footer className="App-Footer"/>
         </div>
       </Provider>
     );
