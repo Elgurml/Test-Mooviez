@@ -5,6 +5,7 @@
 
 .CategoryCheck-checkBox {
 margin: 7px;
+cursor: pointer;
 }
 
 .CategoryCheck-name {
