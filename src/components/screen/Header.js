@@ -2,21 +2,31 @@ import React from 'react';
 import './Header.css'
 import Toggle from 'react-toggle'
 import { connect } from 'react-redux';
-import { fetchPosts } from '../../actions/postActions';
+import { fetchPosts, filterMovies } from '../../actions/postActions';
 
 import CategoryCheck from '../content/CategoryCheck';
 
 class Header extends React.Component {
-    componentDidMount() {
-        this.props.fetchPosts();
+
+    componentDidMount = async () => {
+        await this.props.fetchPosts();
     }
 
-    
-
-    render () {
-        const categories = [...new Set(this.props.posts.map(i => i.category))];
-        console.log(categories);
+    categoryFilter = async (categ) => {
+        let activeCategories = [...this.props.catChecker]
+        if (activeCategories.includes(categ)) {
+            activeCategories = activeCategories.filter(value => value !== categ )
+        } else {
+            activeCategories.push(categ)
+        }
         
+        console.log("this.props.items in header", this.props.posts)
+        this.props.filterMovies(activeCategories, this.props.posts)
+    }
+
+
+    
+    render () {
         return (
             <div>
                 <div className="Header-titleArea">
@@ -31,12 +41,13 @@ class Header extends React.Component {
                         <p className="Header-optionsToggleLikesText">Toggle likes</p>
                     </div>
                     <div className="Header-optionsCategories">
-                        {categories
+                        {this.props.cat
                         .map((category, index) => 
                                 <CategoryCheck
                                     key={index}
                                     categoryFilter={category}
-                                    hideShowCat={this.props.check}
+                                    hideShowCat={this.categoryFilter}
+                                    isChecked={this.props.catChecker.includes(category)}
                                 />
                             )
                         }
@@ -50,7 +61,9 @@ class Header extends React.Component {
 
 
 const mapStateToProps = state => ({
-    posts: state.posts.items
+    posts: state.posts.items,     // the movies
+    cat: state.posts.cat,          // unique categories*
+    catChecker: state.posts.catChecker // array of categories for check buttons
 })
 
-export default connect(mapStateToProps, { fetchPosts })(Header);
+export default connect(mapStateToProps, { fetchPosts, filterMovies })(Header);
